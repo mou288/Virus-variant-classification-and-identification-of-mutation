@@ -6,13 +6,23 @@ from backend.predict_and_mutations.run import (
     mutations_to_tsv_text,
 )
 
-# ------------------ PAGE CONFIG ------------------
+#  PAGE CONFIG 
 st.set_page_config(
     page_title="Virus Variant Classifier",
     page_icon="🧬",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
+
+#  HIDE STREAMLIT DEFAULT MENU / TOOLBAR 
+st.markdown("""
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+[data-testid="stToolbar"] {display: none !important;}
+</style>
+""", unsafe_allow_html=True)
 
 # Force page to scroll to top on load
 st.markdown("""
@@ -23,7 +33,7 @@ window.addEventListener('load', function() {
 </script>
 """, unsafe_allow_html=True)
 
-# ------------------ CUSTOM CSS ------------------
+#  CUSTOM CSS 
 st.markdown("""
 <style>
 /* Global Background */
@@ -308,8 +318,7 @@ p, li, span {
 </style>
 """, unsafe_allow_html=True)
 
-
-# ------------------ HEADER ------------------
+#  HEADER 
 st.markdown("""
 <div class="hero">
     <div class="hero-title">🧬 Virus Variant Classifier</div>
@@ -317,15 +326,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-
-# ------------------ UPLOAD SECTION ------------------
+# UPLOAD SECTION 
 st.markdown("### 📁 Upload FASTA Sequence")
 st.markdown("<p style='color: #94a3b8; margin-bottom: 20px;'>Upload a FASTA file containing your viral sequence for classification and mutation analysis.</p>", unsafe_allow_html=True)
 
 uploaded = st.file_uploader("", type=["fasta"], label_visibility="collapsed")
 
-
-# ------------------ PROCESS FILE ------------------
+#  PROCESS FILE 
 if uploaded:
     fasta_text = uploaded.read().decode()
 
@@ -360,8 +367,7 @@ if uploaded:
     with st.spinner("🧬 Computing mutations against reference genome..."):
         muts = find_mutations(ref, seq)
 
-
-    # ------------------ MUTATIONS SECTION ------------------
+    #  MUTATIONS SECTION 
     st.markdown("<div class='result-card'>", unsafe_allow_html=True)
     
     st.markdown("### 🧪 Mutation Analysis")
@@ -373,14 +379,12 @@ if uploaded:
     )
     
     if len(muts) > 0:
-        # Show mutations table
         st.dataframe(
             muts, 
             use_container_width=True,
             height=400
         )
         
-        # Download section
         st.markdown("---")
         st.markdown("#### 💾 Export Results")
         
@@ -400,7 +404,6 @@ if uploaded:
     st.markdown("</div>", unsafe_allow_html=True)
 
 else:
-    # Empty state
     st.markdown("<div class='result-card'>", unsafe_allow_html=True)
     st.markdown("""
     <div style='text-align: center; padding: 60px 20px; color: #94a3b8;'>
@@ -411,8 +414,7 @@ else:
     """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
-
-# ------------------ FOOTER ------------------
+# FOOTER 
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("""
 <div style='text-align: center; color: #64748b; font-size: 13px; padding: 20px;'>
