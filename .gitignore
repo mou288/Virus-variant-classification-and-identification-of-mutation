@@ -211,3 +211,72 @@ backend/data/raw
 
 backend/models/results/
 backend/models/*.model
+
+backend/predict_and_mutations/output/
+backend/predict_and_mutations/references/
+backend/predict_and_mutations/sample.fasta
+
+
+
+# === FRONTEND (Next.js) ===
+
+# dependencies
+/frontend/node_modules/
+/frontend/.pnp
+/frontend/.pnp.*
+/frontend/yarn/*
+!/frontend/yarn/patches
+!/frontend/yarn/plugins
+!/frontend/yarn/releases
+!/frontend/yarn/versions
+
+# testing
+/frontend/coverage/
+
+# next.js build output
+/frontend/.next/
+/frontend/out/
+
+# production build
+/frontend/build/
+
+# vercel
+/frontend/.vercel
+
+# typescript
+/frontend/*.tsbuildinfo
+/frontend/next-env.d.ts
+
+
+# === BACKEND (Python) ===
+
+# virtual env
+venv/
+.env/
+*.env
+
+# python cache
+__pycache__/
+*.py[cod]
+
+# sqlite db or similar (optional)
+*.db
+
+
+# === GLOBAL ===
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# misc
+.DS_Store
+*.pem
+
+# OS / tools
+Thumbs.db
+
+.vscode/
+
