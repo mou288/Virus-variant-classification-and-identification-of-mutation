@@ -71,41 +71,29 @@ Pairwise Alignment vs Reference
       ▼
 HGVS Mutation Report (SNPs, Insertions, Deletions)
 ```
-
----
-
 ## 📁 Project Structure
-
+---
 ```
 GenomeNet/
 │
-├── data/
-│   ├── raw/                        # Raw FASTA files from NCBI
-│   └── processed_3way_split/       # Preprocessed embeddings (.npy) and labels (.csv)
-│
-├── models/
-│   ├── word2vec.model              # Trained Word2Vec model
-│   └── results/
-│       ├── best_model.keras        # Best trained CNN+BiLSTM model
-│       ├── label_encoder.joblib    # Sklearn label encoder
-│       ├── confusion_matrix.png    # Confusion matrix plot
-│       ├── accuracy_curve.png      # Training accuracy curve
-│       └── test_report.txt         # Full classification report
-│
-├── src/
-│   ├── fetch_sequences.py          # NCBI Entrez data fetching pipeline
-│   ├── preprocess.py               # K-mer embedding + sliding window preprocessing
-│   ├── train.py                    # CNN + BiLSTM model training
+├── backend/
+│   ├── data/
+│   │   ├── gene_download.py              # NCBI Entrez sequence fetching pipeline
+│   │   ├── reference_gene_download.py    # Reference genome fetching for mutation alignment
+│   │   └── embedding_(preprocessing).py  # K-mer tokenisation + Word2Vec + sliding windows
+│   │
+│   ├── models/
+│   │   └── 2cnn_bilstm.py               # CNN + BiLSTM model definition and training
+│   │
 │   └── predict_and_mutations/
-│       └── run.py                  # Inference + HGVS mutation detection
+│       └── run.py                        # Inference + HGVS mutation detection
 │
-├── app.py                          # Streamlit web application
+├── app.py                                # Streamlit web application
 ├── requirements.txt
+├── LICENSE
 └── README.md
-```
-
 ---
-
+```
 ## ⚙️ How It Works
 
 ### 1. Data Collection
