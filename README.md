@@ -1,4 +1,4 @@
-#  GenomeNet — Viral Variant Classifier & Mutation Analyzer
+#  Viral Variant Classifier & Mutation Analyzer
 
 A deep learning pipeline for classifying viral DNA sequences across **16 classes** and detecting genomic mutations with **HGVS-compliant reporting**. Built with a CNN + Bidirectional LSTM architecture trained on **16,000+ real sequences** fetched from NCBI Entrez.
 
@@ -74,7 +74,7 @@ HGVS Mutation Report (SNPs, Insertions, Deletions)
 ## 📁 Project Structure
 ---
 ```
-GenomeNet/
+Viral Variant Classifier & Mutation Analyzer/
 │
 ├── backend/
 │   ├── data/
