@@ -2,6 +2,9 @@
 
 A deep learning pipeline for classifying viral DNA sequences across **16 classes** and detecting genomic mutations with **HGVS-compliant reporting**. Built with a CNN + Bidirectional LSTM architecture trained on **16,000+ real sequences** fetched from NCBI Entrez.
 
+
+##  Demo Video
+[![Watch Demo](https://img.youtube.com/vi/UnZpTId-Y0w/0.jpg)](https://youtu.be/UnZpTId-Y0w)
 ---
 
 ## 📊 Results
